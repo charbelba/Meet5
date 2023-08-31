@@ -1,42 +1,52 @@
 # Meet5
 Microservices Architecture Components:
-1. User Service :
-Manages user profiles, registration, authentication, and updates.
-Provides APIs for creating, updating, and deleting user profiles.
-4. Fraud Detection Service
-Monitors user behavior for detecting fraud.
-Analyzes activity patterns to identify suspicious actions.
-Collaborates with the User Service to mark users as "fraudulent" when needed.
+User Interaction:
 
-6. API Gateway
-Acts as the entry point for external clients.
-Routes requests to appropriate microservices.
-Manages authentication, rate limiting, and request/response transformations
+Users perform interactions such as liking a post or visiting a page within the application.
+User Service:
 
-8. Data Storage
-Microservices manage their own data storage (relational, NoSQL, etc.).
-Choice between database-per-service or shared-database models based on requirements.
+The User Service records these interactions in its MySQL database, updating the user's profile with interaction details.
+Interaction data includes the type of interaction (like, visit) and the timestamp.
+Event Publication:
 
-10. Event Broker
-Utilizes a message broker like Apache Kafka or RabbitMQ.
-Microservices publish events related to activities and updates.
-Subscribed services react to events for enhanced responsiveness.
+Upon recording an interaction, the User Service publishes an event related to the interaction to the event broker.
+This event contains information about the user, the type of interaction, and the timestamp.
+Event Broker:
 
-12. Load Balancers and Scaling
-Implements load balancers for even request distribution.
-Enables independent scaling of microservices based on demand.
+The event broker receives and stores events from the User Service.
+Fraud Detection Service Subscription:
 
-14. Service Discovery
-Incorporates tools like Consul, Eureka, or Kubernetes' service discovery.
-Facilitates service registration and discovery across the architecture.
+The Fraud Detection Service subscribes to events from the event broker, particularly those related to user interactions.
+Fraud Detection Analysis:
 
-16. Fault Tolerance and Monitoring
-Implements resilience with circuit breakers, retries, and timeouts.
-Employs monitoring tools such as Prometheus, Grafana, or ELK stack for real-time insights.
+When the Fraud Detection Service receives an interaction event, it extracts user information from the event.
+The Fraud Detection Service accesses the User Service's MySQL database to retrieve the user's interaction history.
+Interaction Count Calculation:
 
-18. Containerization and Orchestration
-Deploys microservices using Docker containers for consistency.
-Orchestrates containers with Kubernetes for automated management and scaling.
+Using the interaction history, the Fraud Detection Service calculates the total number of interactions (likes and visits) for the user.
+Fraud Detection Decision:
+
+If the total interaction count reaches the threshold (e.g., 100 interactions), the Fraud Detection Service marks the user as fraudulent.
+The Fraud Detection Service updates its own NoSQL database to reflect the fraudulent status of the user.
+User API and Fraud API:
+
+External clients, such as web or mobile applications, interact with the system through the User API and Fraud API.
+The User API provides functionalities related to user profiles, interactions, and updates.
+The Fraud API offers functionalities for querying and managing flagged users for fraud.
+API Gateway:
+
+The API Gateway acts as the entry point for external clients.
+It routes incoming requests to appropriate microservices (User Service API, Fraud API).
+The API Gateway handles authentication, rate limiting, and request/response transformations.
+Service Discovery:
+
+The Eureka Discovery service assists in locating and communicating with different microservices.
+Load Balancing:
+
+Load balancers distribute incoming requests evenly across instances of microservices for optimized resource utilization.
+Docker Containerization:
+
+Each microservice is containerized using Docker for consistency and portability.
 
 20. Security
 Implements authentication and authorization mechanisms.
