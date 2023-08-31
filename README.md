@@ -2,7 +2,7 @@
 
 ---
 
-# Microservices Architecture Flow
+# Microservice
 
 This document outlines the flow of the microservices architecture, detailing how user interactions are processed and fraud detection is performed. The architecture consists of various components that work together to manage user interactions and detect fraudulent behavior.
 
@@ -79,6 +79,12 @@ This document outlines the flow of the microservices architecture, detailing how
 
 **Docker for each service**
 
+---
+
+## Fault Tolerance:
+
+Circuit breakers, retries, and timeouts are implemented for fault tolerance.
+These measures ensure that the system can handle failures gracefully and maintain functionality.
 
 ---
 
