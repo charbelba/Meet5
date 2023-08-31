@@ -1,5 +1,5 @@
 # Meet5
-User Interaction:
+User Interaction
 
 Users perform interactions such as liking a post or visiting a page within the application.
 User Service:
