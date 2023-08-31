@@ -1,5 +1,4 @@
 # Meet5
-Microservices Architecture Components:
 User Interaction:
 
 Users perform interactions such as liking a post or visiting a page within the application.
@@ -47,8 +46,3 @@ Load balancers distribute incoming requests evenly across instances of microserv
 Docker Containerization:
 
 Each microservice is containerized using Docker for consistency and portability.
-
-20. Security
-Implements authentication and authorization mechanisms.
-Ensures secure communication via HTTPS and utilizes JWT tokens.
-Regularly conducts security audits and vulnerability assessments.
