@@ -55,10 +55,7 @@ This document outlines the flow of the microservices architecture, detailing how
 13. **Docker Containerization:**
     - Each microservice is containerized using Docker for consistency and portability.
 
-## Conclusion:
 
-This architecture flow demonstrates how user interactions are tracked, events are propagated, fraud detection is performed, and various components work together to ensure the reliability, scalability, and security of the microservices system.
 
 ---
 
-Feel free to customize this README-like format to suit your documentation needs.
