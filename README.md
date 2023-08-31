@@ -55,7 +55,19 @@ This document outlines the flow of the microservices architecture, detailing how
 13. **Docker Containerization:**
     - Each microservice is containerized using Docker for consistency and portability.
 
+## Components:
 
+**Load Balancer**
+**API Gateway**
+**Eureka Discovery**
+**User Service**
+**Fraud Detection Service**
+**User API (RESTful)**
+**Fraud API (RESTful)**
+**User Service MySQL Database**
+**Fraud Service NoSQL Database**
+**Event Broker**
+**Docker for each service**
 
 ---
 
