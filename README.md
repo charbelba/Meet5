@@ -57,27 +57,27 @@ This document outlines the flow of the microservices architecture, detailing how
 
 ## Components:
 
-**Load Balancer**
+**1.Load Balancer**
 
-**API Gateway**
+**2.API Gateway**
 
-**Eureka Discovery**
+**3.Eureka Discovery**
 
-**User Service**
+**4.User Service**
 
-**Fraud Detection Service**
+**5.Fraud Detection Service**
 
-**User API (RESTful)**
+**6.User API (RESTful)**
 
-**Fraud API (RESTful)**
+**7.Fraud API (RESTful)**
 
-**User Service MySQL Database**
+**8.User Service MySQL Database**
 
-**Fraud Service NoSQL Database**
+**9.Fraud Service NoSQL Database**
 
-**Event Broker**
+**10.Event Broker**
 
-**Docker for each service**
+**11.Docker for each service**
 
 ---
 
