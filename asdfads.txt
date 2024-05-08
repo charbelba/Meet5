@@ -1,1 +1,2 @@
-resolve the conflict now 
+some useful data
+
