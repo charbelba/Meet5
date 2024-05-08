@@ -34,6 +34,7 @@ public class UserService {
      * @return An Optional containing a success message or failure message.
      */
     public Optional<String> recordVisit(UserVisitRequestModel request) {
+
         try {
             jdbcTemplate.update(Queries.sqlVisit,
                     request.getUserAId(),
